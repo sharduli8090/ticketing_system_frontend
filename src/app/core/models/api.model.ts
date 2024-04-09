@@ -1,20 +1,70 @@
 export interface APIResponse {
   message: string;
-  result: boolean;
   data: any;
 }
+export interface APIResponseLogin {
+  id: string;
+  token: any;
+  message: string;
+}
 
+export class Employee {
+  empName: string;
+  email: string;
+  password: string;
+  empPosition: string;
+  empGender: string;
+  empDateOfBirth: string;
 
-export class Department{
-    deptId: number;
-    deptName: string;
-    deptHeadEmpId: number;
-    createdDate: Date;
+  constructor() {
+    this.empName = '';
+    this.email = '';
+    this.password = '';
+    this.empGender = '';
+    this.empPosition = '';
+    this.empGender = '';
+    this.empDateOfBirth = '';
+  }
+}
 
-    constructor(){
-        this.deptId = 0;
-        this.deptName = '';
-        this.deptHeadEmpId = 0;
-        this.createdDate = new Date();
-    }
+export class Login {
+  email: string;
+  password: string;
+
+  constructor() {
+    this.email = '';
+    this.password = '';
+  }
+}
+
+export class Ticket {
+  ticketName: string;
+  ticketDescription: string;
+  empId: string;
+  empName: string;
+
+  constructor() {
+    this.ticketName = '';
+    this.ticketDescription = '';
+    this.empId = '';
+    this.empName = '';
+  }
+}
+
+export class Close_Ticket {
+  empId: string;
+
+  constructor() {
+    this.empId = '';
+  }
+}
+
+export class TicketApproveDeny {
+  ticketStatus: string;
+  ticketComments: string;
+
+  constructor() {
+    this.ticketStatus = '';
+    this.ticketComments = '';
+  }
 }
