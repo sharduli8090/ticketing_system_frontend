@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router'; // Use CanActivate for a
 import { LoginEmployeeComponent } from './pages/login-employee/login-employee.component'; // Import your login component
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component'; // Import your admin dashboard component
 import { EmployeeDashboardComponent } from './pages/employee-dashboard/employee-dashboard.component';
-import { AdminGuard, EmployeeGuard } from './auth.guard';
+import { AdminGuard, EmployeeGuard } from './core/guard/auth.guard';
 
 export const routes: Routes = [
   { path: 'loginemployee', component: LoginEmployeeComponent },

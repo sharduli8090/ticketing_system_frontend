@@ -16,6 +16,9 @@ export const Constants = {
     CREATE_TICKET: 'employee/createticket',
     CLOSE_TICKET: 'employee/closeticket/',
   },
+  API_GENERAL_ENDPOINT: {
+    SEND_QUERY: 'sendqueryfeedback',
+  },
   VALIDATION_MESSAGE: {
     REQUIRED: 'This field is required',
   },

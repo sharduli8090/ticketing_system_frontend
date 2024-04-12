@@ -68,3 +68,14 @@ export class TicketApproveDeny {
     this.ticketComments = '';
   }
 }
+
+
+export class Query{
+  name: string;
+  query: string;
+
+  constructor() {
+    this.name = '';
+    this.query = '';
+  }
+}

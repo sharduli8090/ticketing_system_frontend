@@ -3,23 +3,29 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private localStorageService: LocalStorageService
+  ) {}
 
   getAuthorizationHeaders(userType: 'admin' | 'employee'): HttpHeaders {
     let token = '';
     if (userType === 'admin') {
-      token = localStorage.getItem('adminToken') || ''; // Retrieve admin token
+      token = this.localStorageService.getItem('adminToken') || ''; // Retrieve admin token
+      // token = localStorage.getItem('adminToken') || ''; // Retrieve admin token
     } else {
-      token = localStorage.getItem('employeeToken') || ''; // Retrieve emp token
+      token = this.localStorageService.getItem('employeeToken') || ''; // Retrieve employee token
+      // token = localStorage.getItem('employeeToken') || ''; // Retrieve employee token
     }
-  
+
     if (!token) {
       throw new Error('Unauthorized: No token found');
     }
-  
+
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
@@ -32,7 +38,7 @@ export class AuthService {
     //   token = localStorage.getItem('employeeToken') || '';
     // }
     // if (!token) {
-    //   return false;  
+    //   return false;
     // }else{
     //   return true;
     // }
@@ -41,13 +47,13 @@ export class AuthService {
 
   getUserType(): string {
     let user = '';
-    if (localStorage.getItem('adminToken')) {
-      user = "admin";
-    } else if (localStorage.getItem('employeeToken')) {
-      user = "employee";
-    } 
+    if (this.localStorageService.getItem('adminToken')) {
+      user = 'admin';
+    } else if (this.localStorageService.getItem('employeeToken')) {
+      user = 'employee';
+    }
     // Implement your logic to retrieve the user type
-    return "admin"; // Replace with your implementation
+    return 'employee'; // Replace with your implementation
   }
 
   // New method for checking authorization based on roles
@@ -57,6 +63,6 @@ export class AuthService {
     }
 
     const userType = this.getUserType();
-    return of(requiredRoles.some(role => role === userType)); // Check if user has any of the required roles
+    return of(requiredRoles.some((role) => role === userType)); // Check if user has any of the required roles
   }
 }

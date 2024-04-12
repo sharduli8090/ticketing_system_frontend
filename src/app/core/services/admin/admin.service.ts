@@ -1,10 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { Constants } from '../constant/Constant';
-import { APIResponse, Employee, TicketApproveDeny } from '../models/api.model';
-import { AuthService } from './auth.service';
+import { environment } from '../../../../environments/environment';
+import { Constants } from '../../constant/Constant';
+import {
+  APIResponse,
+  Employee,
+  TicketApproveDeny,
+} from '../../models/api.model';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +19,7 @@ export class AdminService {
   createEmployee(obj: Employee): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.post<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.CREATE_EMPLOYEE,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.CREATE_EMPLOYEE,
       obj,
       { headers }
     );
@@ -24,7 +28,7 @@ export class AdminService {
   getAllEmployee(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.get<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.GET_ALL_EMPLOYEE,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.GET_ALL_EMPLOYEE,
       { headers }
     );
   }
@@ -32,7 +36,7 @@ export class AdminService {
   getAllTicket(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.get<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.GET_ALL_TICKET,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.GET_ALL_TICKET,
       { headers }
     );
   }
@@ -40,7 +44,7 @@ export class AdminService {
   deleteAllTicket(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_TICKET,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_TICKET,
       { headers }
     );
   }
@@ -48,7 +52,7 @@ export class AdminService {
   deleteAllEmployee(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_EMPLOYEE,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_EMPLOYEE,
       { headers }
     );
   }
@@ -56,7 +60,7 @@ export class AdminService {
   deleteEmployee(id: string): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.DELETE_EMPLOYEE + id,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_EMPLOYEE + id,
       { headers }
     );
   }
@@ -64,7 +68,7 @@ export class AdminService {
   deleteTicket(id: string): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.DELETE_TICKET + id,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_TICKET + id,
       { headers }
     );
   }
@@ -75,7 +79,7 @@ export class AdminService {
   ): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.put<APIResponse>(
-      environment.API_URL +
+      environment.API_ADMIN_URL +
         Constants.API_ADMIN_ENDPOINT.APPROVE_DENY_TICKET +
         ticketId,
       obj,
