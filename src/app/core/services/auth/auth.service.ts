@@ -18,7 +18,7 @@ export class AuthService {
       token = this.localStorageService.getItem('adminToken') || ''; // Retrieve admin token
       // token = localStorage.getItem('adminToken') || ''; // Retrieve admin token
     } else {
-      token = this.localStorageService.getItem('employeeToken') || ''; // Retrieve employee token
+      token = this.localStorageService.getItem('emptoken') || ''; // Retrieve employee token
       // token = localStorage.getItem('employeeToken') || ''; // Retrieve employee token
     }
 
@@ -31,29 +31,29 @@ export class AuthService {
 
   // Replace these methods with your actual login logic and user type retrieval
   isLoggedIn(): boolean {
-    // let token = '';
-    // if (localStorage.getItem('adminToken')) {
-    //   token = localStorage.getItem('adminToken') || '';
-    // } else if (localStorage.getItem('employeeToken')) {
-    //   token = localStorage.getItem('employeeToken') || '';
-    // }
-    // if (!token) {
-    //   return false;
-    // }else{
-    //   return true;
-    // }
-    return true;
+    let token = '';
+    if (localStorage.getItem('adminToken')) {
+      token = localStorage.getItem('adminToken') || '';
+    } else if (localStorage.getItem('emptoken')) {
+      token = localStorage.getItem('emptoken') || '';
+    }
+    if (!token) {
+      return false;
+    }else{
+      return true;
+    }
+    // return false;
   }
 
   getUserType(): string {
     let user = '';
     if (this.localStorageService.getItem('adminToken')) {
       user = 'admin';
-    } else if (this.localStorageService.getItem('employeeToken')) {
+    } else if (this.localStorageService.getItem('emptoken')) {
       user = 'employee';
     }
     // Implement your logic to retrieve the user type
-    return 'employee'; // Replace with your implementation
+    return user; // Replace with your implementation
   }
 
   // New method for checking authorization based on roles
@@ -64,5 +64,13 @@ export class AuthService {
 
     const userType = this.getUserType();
     return of(requiredRoles.some((role) => role === userType)); // Check if user has any of the required roles
+  }
+
+  logout() {
+    this.localStorageService.removeItem('admintoken');
+    this.localStorageService.removeItem('adminid');
+
+    this.localStorageService.removeItem('emptoken');
+    this.localStorageService.removeItem('empid');
   }
 }

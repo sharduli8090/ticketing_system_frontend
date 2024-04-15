@@ -4,6 +4,7 @@ import { LoginEmployeeComponent } from './pages/login-employee/login-employee.co
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component'; // Import your admin dashboard component
 import { EmployeeDashboardComponent } from './pages/employee-dashboard/employee-dashboard.component';
 import { AdminGuard, EmployeeGuard } from './core/guard/auth.guard';
+import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 export const routes: Routes = [
   { path: 'loginemployee', component: LoginEmployeeComponent },
@@ -16,6 +17,10 @@ export const routes: Routes = [
     path: 'employeedash',
     component: EmployeeDashboardComponent,
     canActivate: [EmployeeGuard], // Use EmployeeGuard for authorization check
+  },
+  {
+    path:'loginadmin',
+    component:LoginAdminComponent
   },
   { path: '**', redirectTo: 'loginemployee', pathMatch: 'full' }, // Catch-all for unmatched routes, redirect to login
 ];

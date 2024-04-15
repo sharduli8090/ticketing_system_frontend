@@ -2,12 +2,7 @@ export interface APIResponse {
   statuscode: number;
   message: string;
   data: any;
-}
-export interface APIResponseLogin {
-  id: string;
-  token: any;
-  message: string;
-}
+} 
 
 export class Employee {
   empName: string;

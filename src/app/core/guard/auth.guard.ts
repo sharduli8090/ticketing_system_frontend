@@ -24,7 +24,9 @@ export class AdminGuard implements CanActivate {
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeGuard implements CanActivate {
-  constructor(@Inject(AuthService) private authService: AuthService) {} // Add the @Inject decorator
+  constructor(@Inject(AuthService) private authService: AuthService) {
+    console.log('EmployeeGuard');
+  } // Add the @Inject decorator
 
   canActivate(
     route: ActivatedRouteSnapshot,
