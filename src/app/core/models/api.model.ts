@@ -1,4 +1,5 @@
 export interface APIResponse {
+  statuscode: number;
   message: string;
   data: any;
 }

@@ -1,4 +1,4 @@
-import { Component, Query } from '@angular/core';
+import { Component } from '@angular/core';
 import { GeneralService } from '../../core/services/general/general.service';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -21,26 +21,18 @@ export class FooterComponent {
       query: this.query,
     };
     this.generalService.sendQuery(obj).subscribe(
-      (response) => {
-        // this.queryResponse = response;
-        console.log('Query response:', response);
-        // Handle successful response data here (e.g., display in UI)
+      (response) => { 
+        if (response.statuscode === 200) {
+          alert('Query submitted successfully');
+        }
+
+        this.name = '';
+        this.query = ''; 
       },
       (error) => {
-        console.error('Error sending query:', error);
-        // Handle errors here (e.g., show error message to user)
+        alert('Error submitting query');
+        console.error('Error sending query:', error); 
       }
     );
-  }
-  // onSubmit() {
-  //   // Call sendQuery function from admin service
-  //   console.log("on submit")
-  //   const obj = {
-  //     "name": this.name,
-  //     "query": this.query
-  //   };
-  //   this.generalService.sendQuery(obj);
-  //   this.name = '';
-  //   this.query = '';
-  // }
+  } 
 }
