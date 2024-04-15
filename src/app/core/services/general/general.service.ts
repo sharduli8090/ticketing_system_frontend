@@ -15,7 +15,7 @@ export class GeneralService {
   sendQuery(obj: Query): Observable<APIResponse> {
     const url = `${environment.API_URL}${Constants.API_GENERAL_ENDPOINT.SEND_QUERY}`; 
     return this.http.post<APIResponse>(url, obj).pipe(
-      tap((response) => console.log('Query response:', response)), // Handle successful response (optional)
+      tap((response) => console.log('Query sent')), // Handle successful response (optional)
       catchError((error) => {
         console.error('Error sending query:', error);
         return throwError(() => new Error('Error sending query')); // Re-throw for error handling

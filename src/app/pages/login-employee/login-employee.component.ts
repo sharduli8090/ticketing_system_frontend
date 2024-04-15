@@ -52,9 +52,9 @@ export class LoginEmployeeComponent implements OnInit {
       next: (response: APIResponse) => {
         if (response.statuscode === 200) {
           this.errorMessage = '';
-          console.log('Login successful:', response);
+          // console.log('Login successful:', response);
           this.router.navigate(['/employeedash']); // Navigate to protected route after successful login
-          console.log('Login successful:', response);
+          // console.log('Login successful:', response);
         } else {
           this.errorMessage = 'Invalid Credentials'; // Handle invalid credentials gracefully
         }

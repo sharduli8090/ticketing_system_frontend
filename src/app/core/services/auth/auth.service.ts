@@ -15,7 +15,7 @@ export class AuthService {
   getAuthorizationHeaders(userType: 'admin' | 'employee'): HttpHeaders {
     let token = '';
     if (userType === 'admin') {
-      token = this.localStorageService.getItem('adminToken') || ''; // Retrieve admin token
+      token = this.localStorageService.getItem('admintoken') || ''; // Retrieve admin token
       // token = localStorage.getItem('adminToken') || ''; // Retrieve admin token
     } else {
       token = this.localStorageService.getItem('emptoken') || ''; // Retrieve employee token
@@ -32,8 +32,8 @@ export class AuthService {
   // Replace these methods with your actual login logic and user type retrieval
   isLoggedIn(): boolean {
     let token = '';
-    if (localStorage.getItem('adminToken')) {
-      token = localStorage.getItem('adminToken') || '';
+    if (localStorage.getItem('admintoken')) {
+      token = localStorage.getItem('admintoken') || '';
     } else if (localStorage.getItem('emptoken')) {
       token = localStorage.getItem('emptoken') || '';
     }
@@ -47,7 +47,7 @@ export class AuthService {
 
   getUserType(): string {
     let user = '';
-    if (this.localStorageService.getItem('adminToken')) {
+    if (this.localStorageService.getItem('admintoken')) {
       user = 'admin';
     } else if (this.localStorageService.getItem('emptoken')) {
       user = 'employee';
