@@ -52,7 +52,8 @@ export class LoginAdminComponent implements OnInit {
       next: (response: APIResponse) => {
         if (response.statuscode === 200) {
           this.errorMessage = '';
-          // console.log('Login successful:', response);
+
+          console.log('Login successful:', response);
           this.router.navigate(['/admindash']); // Navigate to protected route after successful login
           // console.log('Login successful:', response);
         } else {
