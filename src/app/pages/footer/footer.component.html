@@ -1,9 +1,11 @@
-<footer class="flex justify-between items-center px-4 py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-md">
-    <p>&copy; 2024 Created with love <i class="fas fa-heart text-red-500"></i> by Creativstan</p>
-    <form (ngSubmit)="onSubmit()">
-      <input type="text" name="name" [(ngModel)]="name" placeholder="Your Name or Type Anonymous" class="px-3 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300 text-gray-800" autocomplete="off">
-      <input type="text" name="query" [(ngModel)]="query" placeholder="Your Query" class="mx-2 px-3 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300 text-gray-800" autocomplete="off">
-      <button type="submit" class="btn btn-sm bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-md">Send Query</button>
-    </form>
+<footer class="flex justify-between items-center  pb-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-md flex-col">
+  
+  <form (ngSubmit)="onSubmit()" class="flex flex-col  md:flex-row  mt-5 md:mt-0 mb-7 md:mb-20 md:flex-wrap lg:flex-nowrap justify-center lg:py-7 md:py-10 lg:mx-0 md:w-full   md:bg-blue-800 lg:bg-blue-700"> 
+      <input type="text" name="name" [(ngModel)]="name" placeholder="Your Name or Type Anonymous" class="md:px-3 md:py-2 px-2 py-2 md:mr-2 md:mb-0  mb-2 text-center md:text-left lg:text-left rounded-md focus:outline-none focus:ring focus:ring-blue-300 text-gray-800 text-md" autocomplete="off">
+      <input type="text" name="query" [(ngModel)]="query" placeholder="Your Query" class="md:px-3 md:py-2 px-2 py-2 md:mb-0 md:mr-2 mb-2 text-center md:text-left lg:text-left rounded-md focus:outline-none focus:ring focus:ring-blue-300 text-gray-800 text-md" autocomplete="off">
+
+    <button type="submit" class="btn btn-sm bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-md md:mt-5 md:w-full md:mx-28 lg:mx-0 lg:w-auto lg:mt-0">Send Query</button>
+  </form>
+  <p class=" text-xs ">&copy; 2024 Created by Creativstan</p>
   </footer>
   
