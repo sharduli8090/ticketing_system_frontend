@@ -1,0 +1,89 @@
+<div class="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-50 to-blue-100">
+  <div class="w-full max-w-screen-md bg-white rounded-lg px-8 py-12 shadow-lg flex flex-col items-center">
+    <h1 class="text-center text-2xl font-medium mb-8">Employee Registration</h1>
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="mb-6 flex flex-col md:flex-row md:space-x-4">
+        <div class="w-full md:w-1/2">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email: <span
+              class="text-sm text-red-600">*</span></label>
+          <input type="email"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="email" placeholder="youremail@example.com" formControlName="email" required>
+        </div>
+        <div class="w-full md:w-1/2">
+          <label for="empName" class="block text-gray-700 text-sm font-bold mb-2">Name:<span
+              class="text-sm text-red-600">*</span></label>
+          <input type="text"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="empName" placeholder="Your Name" formControlName="empName" required>
+        </div>
+      </div>
+
+      <div class="mb-6 flex flex-col md:flex-row md:space-x-4">
+        <div class="w-full md:w-1/2">
+          <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:<span
+              class="text-sm text-red-600">*</span></label>
+          <input type="password"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="password" placeholder="Password" formControlName="password" required>
+        </div>
+        <div class="w-full md:w-1/2">
+          <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:<span
+              class="text-sm text-red-600">*</span></label>
+          <input type="password"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" required
+            (change)="passwordCheck()">
+          </div>
+        </div>
+        
+        <div class="mb-6 flex flex-col md:flex-row md:space-x-4">
+          <div class="w-full md:w-1/2">
+            <label for="empGender" class="block text-gray-700 text-sm font-bold mb-2">Gender:<span
+              class="text-sm text-red-600">*</span></label>
+              <select
+              class="shadow bg-white border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="empGender" formControlName="empGender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="w-full md:w-1/2">
+          <label for="empDateOfBirth" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth:<span
+            class="text-sm text-red-600">*</span></label>
+            <input type="date"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+            id="empDateOfBirth" formControlName="empDateOfBirth" required>
+          </div>
+        </div>
+        
+        <div class="mb-6 flex flex-col md:flex-row md:space-x-4">
+          <div class="w-full md:w-1/2">
+            <label for="empDepartment" class="block text-gray-700 text-sm font-bold mb-2">Department:<span
+              class="text-sm text-red-600">*</span></label>
+              <input type="text"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+              id="empDepartment" placeholder="Employee Department" formControlName="empDepartment" required>
+            </div>
+            <div class="w-full md:w-1/2">
+              <label for="empPosition" class="block text-gray-700 text-sm font-bold mb-2">Position:<span
+                class="text-sm text-red-600">*</span></label>
+                <input type="text"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
+                id="empPosition" placeholder="Employee Position" formControlName="empPosition" required>
+        </div>
+      </div>
+
+      <div class="text-red-500 text-sm mt-1">{{errorMessage}}</div>
+      <div class="flex items-center mb-4">
+        <button type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+          Register
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

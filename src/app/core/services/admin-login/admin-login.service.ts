@@ -16,7 +16,7 @@ export class AdminLoginService {
   ) {}
   adminLogin(obj: Login): Observable<APIResponse> {
     const response = this.http.post<APIResponse>(
-      environment.API_URL + Constants.API_ADMIN_ENDPOINT.ADMIN_LOGIN,
+      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.ADMIN_LOGIN,
       obj
     );
     response.subscribe((res) => {

@@ -69,5 +69,10 @@ export class LoginEmployeeComponent implements OnInit {
         this.errorMessage = 'An error occurred. Please try again later.'; // Provide generic error message for security
       },
     });
+
+  }
+
+  navigateContactPage() {
+    this.router.navigate(['/contactadmin']);
   }
 }

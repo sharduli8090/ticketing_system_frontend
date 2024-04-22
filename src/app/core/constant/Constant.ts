@@ -1,14 +1,14 @@
 export const Constants = {
   API_ADMIN_ENDPOINT: { 
-    ADMIN_LOGIN: 'admin/login',
-    CREATE_EMPLOYEE: 'admin/createemployee',
-    GET_ALL_EMPLOYEE: 'admin/getallemployee',
-    GET_ALL_TICKET: 'admin/getallticket',
-    DELETE_ALL_TICKET: 'admin/deleteallticket',
-    DELETE_TICKET: 'admin/deleteticket/',
-    DELETE_EMPLOYEE: 'admin/deleteemployee/',
-    DELETE_ALL_EMPLOYEE: 'admin/deleteallemployee',
-    APPROVE_DENY_TICKET: 'admin/approvedenyticket/',
+    ADMIN_LOGIN: 'login',
+    CREATE_EMPLOYEE: 'createemployee',
+    GET_ALL_EMPLOYEE: 'getallemployee',
+    GET_ALL_TICKET: 'getallticket',
+    DELETE_ALL_TICKET: 'deleteallticket',
+    DELETE_TICKET: 'deleteticket/',
+    DELETE_EMPLOYEE: 'deleteemployee/',
+    DELETE_ALL_EMPLOYEE: 'deleteallemployee',
+    APPROVE_DENY_TICKET: 'approvedenyticket/',
     
   },
   API_EMPLOYEE_ENDPOINT: {
