@@ -10,6 +10,7 @@ import {
 } from './core/guard/auth.guard';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { ContactadminComponent } from './pages/contactadmin/contactadmin.component';
+import { CreateEmployeeComponent } from './pages/create-employee/create-employee.component';
 
 export const routes: Routes = [
   { path: 'loginemployee', component: LoginEmployeeComponent },
@@ -20,6 +21,11 @@ export const routes: Routes = [
   {
     path: 'admindash',
     component: AdminDashboardComponent,
+    canActivate: [AdminGuard], // Use AdminGuard for authorization check
+  },
+  {
+    path: 'createemployee',
+    component: CreateEmployeeComponent,
     canActivate: [AdminGuard], // Use AdminGuard for authorization check
   },
   {

@@ -1,0 +1,15 @@
+<div class="flex min-h-screen bg-gray-100">
+    <div class="flex-grow px-4 py-8">
+      <div class="flex flex-col h-full justify-center items-center ">
+        <div *ngFor="let card of cards" class="bg-white shadow-md rounded mb-4  w-1/2">
+          <div class="p-4 flex items-center justify-between">
+            <h3 class="text-blue-600 font-bold text-xl">{{ card.name }}</h3>
+            <button (click)="navigateToCard(card.endpoint)"
+              class="bg-blue-600 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded shadow-sm">{{ card.buttonText
+              }}</button>
+          </div>
+          <div class="px-4 py-2 text-gray-600">{{ card.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -75,3 +75,18 @@ export class Query{
     this.query = '';
   }
 }
+
+
+export class Cards{
+  name: string;
+  buttonText: string;
+  endpoint: string;
+  description: string;
+
+  constructor() {
+    this.name = '';
+    this.buttonText = '';
+    this.endpoint = '';
+    this.description = '';
+  }
+}

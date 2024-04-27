@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import {CreateEmployeeComponent} from '../create-employee/create-employee.component';
+import { Component } from '@angular/core';  
+import { adminCards } from '../../core/constant/Constant';
+import { CardsComponent } from '../cards/cards.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CreateEmployeeComponent],
+  imports: [CardsComponent],
   templateUrl: './admin-dashboard.component.html',
-  styleUrl: './admin-dashboard.component.css'
+  styleUrl: './admin-dashboard.component.css',
 })
-export class AdminDashboardComponent {
-
+export class AdminDashboardComponent { 
+  cards = adminCards; 
 }
