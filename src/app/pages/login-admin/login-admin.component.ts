@@ -54,7 +54,8 @@ export class LoginAdminComponent implements OnInit {
           this.errorMessage = '';
 
           console.log('Login successful:', response);
-          this.router.navigate(['/admindash']); // Navigate to protected route after successful login
+          window.location.reload();
+          // this.router.navigate(['/admindash']); // Navigate to protected route after successful login
           // console.log('Login successful:', response);
         } else {
           this.errorMessage = 'Invalid Credentials'; // Handle invalid credentials gracefully

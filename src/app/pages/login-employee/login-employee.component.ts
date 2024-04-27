@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,10 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { EmployeeLoginService } from '../../core/services/employee-login/employee-login.service';
 import { Router } from '@angular/router';
 import { APIResponse, Login } from '../../core/models/api.model';
-import { NgIf } from '@angular/common';
+import { EmployeeLoginService } from '../../core/services/employee-login/employee-login.service';
 
 @Component({
   selector: 'app-login-employee',
@@ -53,7 +53,9 @@ export class LoginEmployeeComponent implements OnInit {
         if (response.statuscode === 200) {
           this.errorMessage = '';
           // console.log('Login successful:', response);
-          this.router.navigate(['/employeedash']); // Navigate to protected route after successful login
+          // this.router.navigate(['/employeedash']); // Navigate to protected route after successful login
+          //refresh the page
+          window.location.reload();
           // console.log('Login successful:', response);
         } else {
           this.errorMessage = 'Invalid Credentials'; // Handle invalid credentials gracefully
@@ -69,7 +71,6 @@ export class LoginEmployeeComponent implements OnInit {
         this.errorMessage = 'An error occurred. Please try again later.'; // Provide generic error message for security
       },
     });
-
   }
 
   navigateContactPage() {
