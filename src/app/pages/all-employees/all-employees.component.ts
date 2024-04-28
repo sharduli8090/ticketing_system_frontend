@@ -14,69 +14,14 @@ import { TableComponent } from '../table/table.component';
 })
 export class AllEmployeesComponent implements OnInit {
   data: any[] = [
-    {
-      id: 'w-DGKMuzY',
-      email: 'manager@gmail.com',
-      empName: 'Pakhi Pandey',
-      empPosition: 'manager',
-      empGender: 'Male',
-      empDateOfBirth: '2001-12-22',
-      empDateOfJoining: '2024-04-10',
-      empNoOfTicketsRaised: 0, 
-      empDepartment: 'finance',
-    },
-    {
-      id: 'oRcjZ3Zuu',
-      email: 'manager2@gmail.com',
-      empName: 'Pakhi Pandey',
-      empPosition: 'manager',
-      empGender: 'Male',
-      empDateOfBirth: '2001-12-22',
-      empDateOfJoining: '2024-04-10',
-      empNoOfTicketsRaised: 4, 
-      empDepartment: 'finance',
-    },
-    {
-      id: 'wx9WwYp-u',
-      email: 'manager3@gmail.com',
-      empName: 'Pakhi Pandey',
-      empPosition: 'manager',
-      empGender: 'Male',
-      empDateOfBirth: '2001-12-22',
-      empDateOfJoining: '2024-04-10',
-      empNoOfTicketsRaised: 0, 
-      empDepartment: 'it',
-    },
-    {
-      id: '0eJggnXe5',
-      email: 'manager4@gmail.com',
-      empName: 'Pakhi Pandey',
-      empPosition: 'manager',
-      empGender: 'Male',
-      empDateOfBirth: '2001-12-22',
-      empDateOfJoining: '2024-04-10',
-      empNoOfTicketsRaised: 0, 
-      empDepartment: 'hr',
-    },
-    {
-      id: 'MuueXrtmZ',
-      email: 'emp@test.com',
-      empName: 'Arijit Paria',
-      empPosition: 'manager',
-      empGender: 'other',
-      empDateOfBirth: '2024-04-04',
-      empDateOfJoining: '2024-04-22',
-      empNoOfTicketsRaised: 0, 
-      empDepartment: 'hr',
-    },
   ]; // Variable to store fetched data
-  loading: boolean = false; // Variable to control the visibility of the loader
+  loading: boolean = true; // Variable to control the visibility of the loader
   selectedDepartment: string = 'all'; // Variable to store the selected department
 
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    // this.fetchData(); // Fetch data on component initialization
+    this.fetchData(); // Fetch data on component initialization
   }
 
   fetchData(): void {
@@ -111,11 +56,11 @@ export class AllEmployeesComponent implements OnInit {
   }
 
   filterByDepartment(): void {
+    this.loading = true; // Show loader while fetching data
     if (this.selectedDepartment === 'all') {
       this.fetchData(); // Fetch all data if 'All' is selected
     } else {
       // Call the API to fetch data for the selected department
-      this.loading = true; // Show loader while fetching data
       this.adminService
         .getEmployeeDeptWise({ dept: this.selectedDepartment })
         .subscribe(

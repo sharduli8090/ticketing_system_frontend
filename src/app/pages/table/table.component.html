@@ -1,22 +1,28 @@
-<table class="  max-w-full rounded-lg shadow-lg divide-y divide-blue-300 m-0 ">
+<table *ngIf="!loading" class="max-w-full rounded-lg shadow-lg divide-y divide-blue-300 m-0">
   <thead class="bg-blue-500 text-white">
     <tr>
       <th class="px-6 py-3 text-center">S.No.</th>
       <ng-container *ngFor="let key of getDisplayKeys()" class="px-6 py-3 text-center">
         <th>{{ key }}</th>
       </ng-container>
+      <th class="px-6 py-3 text-center">Actions</th> <!-- Add Actions column -->
     </tr>
   </thead>
   <tbody class="text-gray-600">
     <tr *ngFor="let row of data; index as i" class="{{ i % 2 === 0 ? 'bg-blue-100' : '' }}">
-      <td class="px-6 py-4 text-center">
-        {{ i + 1 }}
-      </td>
+      <td class="px-6 py-4 text-center">{{ i + 1 }}</td>
       <ng-container *ngFor="let key of getDisplayKeys()">
         <td class="px-6 py-4 text-ellipsis overflow-hidden whitespace-nowrap text-center">
           {{ row[key] }}
         </td>
       </ng-container>
+      <td class="px-6 py-4 text-center">
+        <button (click)="openUpdateModal(row)"class="bg-blue-500 hover:bg-blue-700 rounded mr-3 text-white text-sm p-2">Update</button>
+        <button (click)="deleteRow(row.id, 'employee')" class="bg-red-500 hover:bg-red-700 rounded mr-3 text-white text-sm p-2">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>
+<div *ngIf="loading">
+  <app-loader></app-loader>
+</div>
