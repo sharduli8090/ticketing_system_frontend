@@ -1,4 +1,4 @@
-<div class="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-50 to-blue-100">
+<div *ngIf="!loading" class="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-50 to-blue-100">
   <div class="w-full max-w-md bg-white rounded-lg px-8 py-12 shadow-lg flex flex-col items-center"> 
     <h1 class="text-center text-2xl font-medium mb-8">Welcome Back Employee!</h1>
 
@@ -29,4 +29,7 @@
         Sign up as Employee <a href="contactadmin" class="text-blue-500 font-bold" (click)="navigateContactPage()">Contact Admin</a>
       </div>
   </div>
+</div>
+<div *ngIf="loading">
+  <app-loader></app-loader>
 </div>

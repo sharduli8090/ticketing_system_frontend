@@ -9,6 +9,8 @@ export const Constants = {
     DELETE_EMPLOYEE: 'deleteemployee/',
     DELETE_ALL_EMPLOYEE: 'deleteallemployee',
     APPROVE_DENY_TICKET: 'approvedenyticket/',
+    GET_EMPLOYEE_DEPT_WISE: 'getdeptwiseemployee',
+    GET_TICKET_DEPT_WISE: 'getdeptwiseticket',
   },
   API_EMPLOYEE_ENDPOINT: {
     EMPLOYEE_LOGIN: 'employee/login',

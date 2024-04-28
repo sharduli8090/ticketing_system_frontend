@@ -2,7 +2,7 @@ export interface APIResponse {
   statuscode: number;
   message: string;
   data: any;
-} 
+}
 
 export class Employee {
   empName: string;
@@ -65,8 +65,15 @@ export class TicketApproveDeny {
   }
 }
 
+export class Dept {
+  dept: string;
 
-export class Query{
+  constructor() {
+    this.dept = '';
+  }
+}
+
+export class Query {
   name: string;
   query: string;
 
@@ -76,8 +83,7 @@ export class Query{
   }
 }
 
-
-export class Cards{
+export class Cards {
   name: string;
   buttonText: string;
   endpoint: string;

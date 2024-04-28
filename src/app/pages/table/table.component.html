@@ -1,0 +1,22 @@
+<table class="  max-w-full rounded-lg shadow-lg divide-y divide-blue-300 m-0 ">
+  <thead class="bg-blue-500 text-white">
+    <tr>
+      <th class="px-6 py-3 text-center">S.No.</th>
+      <ng-container *ngFor="let key of getDisplayKeys()" class="px-6 py-3 text-center">
+        <th>{{ key }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody class="text-gray-600">
+    <tr *ngFor="let row of data; index as i" class="{{ i % 2 === 0 ? 'bg-blue-100' : '' }}">
+      <td class="px-6 py-4 text-center">
+        {{ i + 1 }}
+      </td>
+      <ng-container *ngFor="let key of getDisplayKeys()">
+        <td class="px-6 py-4 text-ellipsis overflow-hidden whitespace-nowrap text-center">
+          {{ row[key] }}
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

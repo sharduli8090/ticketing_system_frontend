@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { Constants } from '../../constant/Constant';
 import {
   APIResponse,
+  Dept,
   Employee,
   TicketApproveDeny,
 } from '../../models/api.model';
@@ -44,7 +45,8 @@ export class AdminService {
   deleteAllTicket(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_TICKET,
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.DELETE_ALL_TICKET,
       { headers }
     );
   }
@@ -52,7 +54,8 @@ export class AdminService {
   deleteAllEmployee(): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_ALL_EMPLOYEE,
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.DELETE_ALL_EMPLOYEE,
       { headers }
     );
   }
@@ -60,7 +63,9 @@ export class AdminService {
   deleteEmployee(id: string): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_EMPLOYEE + id,
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.DELETE_EMPLOYEE +
+        id,
       { headers }
     );
   }
@@ -68,7 +73,9 @@ export class AdminService {
   deleteTicket(id: string): Observable<APIResponse> {
     const headers = this.authService.getAuthorizationHeaders('admin');
     return this.http.delete<APIResponse>(
-      environment.API_ADMIN_URL + Constants.API_ADMIN_ENDPOINT.DELETE_TICKET + id,
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.DELETE_TICKET +
+        id,
       { headers }
     );
   }
@@ -82,6 +89,26 @@ export class AdminService {
       environment.API_ADMIN_URL +
         Constants.API_ADMIN_ENDPOINT.APPROVE_DENY_TICKET +
         ticketId,
+      obj,
+      { headers }
+    );
+  }
+
+  getEmployeeDeptWise(obj: Dept): Observable<APIResponse> {
+    const headers = this.authService.getAuthorizationHeaders('admin');
+    return this.http.post<APIResponse>(
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.GET_EMPLOYEE_DEPT_WISE,
+      obj,
+      { headers }
+    );
+  }
+
+  getTicketsDeptWise(obj: Dept): Observable<APIResponse> {
+    const headers = this.authService.getAuthorizationHeaders('admin');
+    return this.http.post<APIResponse>(
+      environment.API_ADMIN_URL +
+        Constants.API_ADMIN_ENDPOINT.GET_TICKET_DEPT_WISE,
       obj,
       { headers }
     );
