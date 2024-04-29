@@ -26,3 +26,26 @@
 <div *ngIf="loading">
   <app-loader></app-loader>
 </div>
+
+
+
+<div class="fixed z-10 inset-0 overflow-y-auto" *ngIf="isOpen">
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="fixed inset-0 bg-gray-500 opacity-75"></div>
+    <div class="relative bg-white rounded-lg p-8">
+      <button class="absolute top-0 right-0 p-2" (click)="closeModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h2 class="text-xl font-bold mb-4">Modal Title</h2>
+      <form (submit)="submitForm()">
+        <div>
+          <label for="inputField" class="block mb-2">Input Field:</label>
+          <input id="inputField" type="text" class="w-full border rounded px-3 py-2" [(ngModel)]="inputValue" required>
+        </div>
+        <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
